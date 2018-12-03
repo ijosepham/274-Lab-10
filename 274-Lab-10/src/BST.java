@@ -1,6 +1,9 @@
 /**
- * this class represents a BST
+ * @author joey pham
+ * @date 25 November 2018
+ * @description this class represents a BST
  */
+
 public class BST {
 	public static class Node {
 		/**

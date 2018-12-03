@@ -1,6 +1,9 @@
 /**
- * this represents a word string
+ * @author joey pham
+ * @date 28 November 2018
+ * @desciption this represents a word string
  */
+
 public class Word {
 	/**
 	 * represents a word
