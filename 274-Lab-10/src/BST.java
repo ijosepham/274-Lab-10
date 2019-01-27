@@ -115,4 +115,81 @@ public class BST {
 			printBST ( n.right );
 		}
 	}
+	
+	/**
+	 * facade
+	 * @param d word to check for
+	 * @return the word and its frequency in the tree
+	 */
+	public Word getWord ( Word d ) {
+		if ( root == null ) {
+			return d;
+		} else { 
+			return getWord ( d, root );
+		}
+	}
+	
+	/**
+	 * gets the word youre looking for
+	 * @param d word to look for
+	 * @param n nodes to look through
+	 * @return the word and its frequency in the tree
+	 */
+	private Word getWord ( Word d, Node n ) {
+		if ( d == n.data ) { // if the top node is the word youre searching
+			return n.data;
+		}
+		if ( d.compareTo ( n.data ) == 0 ) { // if they're the same word
+			return n.data; // return the word and the frequency
+		} else if ( d.compareTo ( n.data ) < 0 ) { // if this then that
+			if ( n.left == null ) { // if left is empty
+				return d; // that means the word deosn't exist
+			} else { 
+				return getWord ( d, n.left ); 
+			}
+		} else { // if that then this
+			if ( n.right == null ) {
+				return d;
+			} else { 
+				return getWord ( d, n.right );
+			}
+		}
+	}
+		
+	/**
+	 * facade
+	 * @param d word to check for
+	 * @return the word and its frequency in the tree
+	 */
+	public boolean contains ( Word d ) {
+		if ( root == null ) {
+			return false;
+		} else { 
+			return contains ( d, root );
+		}
+	}
+	
+	/**
+	 * gets the word youre looking for
+	 * @param d word to look for
+	 * @param n nodes to look through
+	 * @return the word and its frequency in the tree
+	 */
+	private boolean contains ( Word d, Node n ) {
+		if ( d.compareTo ( n.data ) == 0 ) { // if they're the same word
+			return true; // return the word and the frequency
+		} else if ( d.compareTo ( n.data ) < 0 ) { // if this then that
+			if ( n.left == null ) { // if left is empty
+				return false; // that means the word deosn't exist
+			} else { 
+				return contains ( d, n.left ); 
+			}
+		} else { // if that then this
+			if ( n.right == null ) {
+				return false;
+			} else { 
+				return contains ( d, n.right );
+			}
+		}
+	}
 }

@@ -18,7 +18,7 @@ public class Lab10 {
 				displayList ( tree );
 			} else {
 				Word searchee = getSearchWord ( );
-				search ( searchee );
+				search ( tree, searchee );
 			}
 			menuChoice = getMenuChoice ( );
 		}
@@ -80,7 +80,11 @@ public class Lab10 {
 	 * prints out the searched word and its frequencyy
 	 * @param searchee word that the user searched for
 	 */
-	public static void search ( Word searchee ) {
-		System.out.print ( "\n" + searchee.toString ( ) + "\n" + "\n");
+	public static void search ( BST tree, Word searchee ) {
+		if ( tree.contains ( searchee ) ) {
+			System.out.print ( "\n" + tree.getWord ( searchee ) + "\n" + "\n" );
+		} else {
+			System.out.print ( "\n" + searchee.getWord ( ) + " => 0" + "\n" + "\n" );
+		}
 	}
 }

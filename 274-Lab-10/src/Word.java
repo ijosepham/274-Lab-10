@@ -22,7 +22,7 @@ public class Word {
 	 */
 	public Word ( String w ) {
 		word = w;
-		frequency = 0;
+		frequency = 1;
 	}
 	
 	/**
@@ -38,12 +38,7 @@ public class Word {
 	 * @return 0 if same word, - if this then that, + if that then this
 	 */
 	public int compareTo ( Word w ) {
-		if ( ( this.word ).compareToIgnoreCase ( w.word ) == 0 ) {
-			return 0;
-		} else {
-			// returns - if in the right order, + otherwise
-			return ( this.word ).compareToIgnoreCase ( w.word );
-		}
+		return ( this.word ).compareToIgnoreCase ( w.word );
 	}
 	
 	/**
@@ -52,5 +47,13 @@ public class Word {
 	 */
 	public String toString ( ) {
 		return word + " => " + frequency;
+	}
+	
+	/**
+	 * returns the string
+	 * @return the string
+	 */
+	public String getWord ( ) {
+		return word;
 	}
 }
